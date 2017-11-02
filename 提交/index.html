@@ -4,18 +4,65 @@
 		<meta charset="UTF-8">
 		<title></title>
     <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
-  
+    <style>
+    	*{
+    		padding: 0;
+    		margin: 0;
+    		list-style: none;
+    	}
+    	 div{
+    	width: 1200px;
+    	margin: 20px auto;
+    }
+    .naw li{
+    	width: 30%;
+    	float: left;
+    	font-size: 24px;
+    	color: darkorange;
+    }
+    	li{ 
+		text-align: center;
+		line-height: 50px;
+	}
+	 li span{
+		display: block;
+		width: 30%;
+		float: left;
+	}
+	p{
+		width: 1200px;
+		text-align: center;
+	}
+    </style>
 	</head>
      <body>
 			<input type="text" class="name">
 			<input type="text" class="age">
 	 		<button id="btn">添加</button>
-		 
+		 <div>
+		 	<ul class="naw">
+			<li> <b>id</b></li>
+			<li> <b>name</b></li>
+			<li><b>age</b></li>
+		    </ul>
+		 	<ul></ul>
+			 
+		 </div>
 	</body>
 </html>
   <script>
     		$(function(){ 
-    			
+    			$.ajax({
+			    	url:"http://localhost:3000/",
+					type:"POST",
+				    success:function (e) {
+				    	 for(var i in e){
+           $('ul').eq(1).append('<li><span>'+e[i].id+'</span><span>'+e[i].name+'</span><span>'+e[i].age+'</span></li>')
+                      }
+				    	
+				    }
+					 
+				});
     			
     	      $("#btn").click(function(){
              
@@ -27,6 +74,9 @@
  						'age':$('.age').val()
                     },
                     success:function (data){
+                    	            for(var i in data){
+           $('ul').eq(1).append('<li><span>'+data[i].id+'</span><span>'+data[i].name+'</span><span>'+data[i].age+'</span></li>')
+                      }
                           alert("添加成功")
                           
                       
@@ -35,6 +85,19 @@
             	
             })
 			 		 		
+			$.ajax({
+			    	url:"http://localhost:3000/url",
+					type:"POST",
+				    success:function (e) {
+				    	 for(var i in e){
+                            $('div').append('<p>一共：'+e[i].qqq+'</p>')
+                      }
+				    	
+				    }
+					 
+				});	
+				
+				
 				
 			})
 			

@@ -26,4 +26,10 @@ router.post('/btn',function (req, res, next) {
         }
     })
 })
+router.post('/url', function(req, res, next) {
+ res.header('Access-Control-Allow-Origin','*')
+    connection.query('SELECT COUNT (*) AS qqq from index1',function (err, rows, fileds) {
+        res.send(rows)
+    })
+});
 module.exports = router;
