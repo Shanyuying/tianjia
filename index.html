@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+		<script>
+			$(function(){
+				$.ajax({
+			    	url:"http://localhost:3000/",
+					type:"POST",
+				    success:function (e) {
+				    	 for(var i in e){
+           $('ul').eq(1).append('<li><span>'+e[i].id+'</span><span><b>'+e[i].name+'</b></span><span>'+e[i].age+'</span></li>')
+                    }
+				    	
+				    }
+					 
+				});
+			})
+			
+			
+		</script> 
+		 
+	</head>
+	<body>
+		<div>
+		<ul class="naw">
+			<li> <b>id</b></li>
+			<li> <b>name</b></li>
+			<li><b>age</b></li>
+		</ul>
+		<ul>
+			
+		</ul>
+		</div>
+	</body>
+</html>
+<style>
+	*{
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+    div{
+    	width: 1200px;
+    	margin: 20px auto;
+    }
+    .naw li{
+    	width: 30%;
+    	float: left;
+    	font-size: 24px;
+    	color: darkorange;
+    }
+	li{ 
+		text-align: center;
+		line-height: 50px;
+	}
+	span{
+		display: block;
+		width: 30%;
+		float: left;
+	}
+</style>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+  
+	</head>
+     <body>
+			<input type="text" class="name">
+			<input type="text" class="age">
+	 		<button id="btn">添加</button>
+		 
+	</body>
+</html>
+  <script>
+    		$(function(){ 
+    			
+    			
+    	      $("#btn").click(function(){
+             
+          	   $.ajax({
+                    url:'http://localhost:3000/btn',
+                    type:'POST',
+                    data:{
+                    	'name':$('.name').val(),
+ 						'age':$('.age').val()
+                    },
+                    success:function (data){
+                          alert("添加成功")
+                          
+                      
+                   }
+                })
+            	
+            })
+			 		 		
+				
+			})
+			
+			
+			
+			
+			
+    	
+    	
+    </script>
